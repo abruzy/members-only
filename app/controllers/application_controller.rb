@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  def sign_in
+  def sign_in(user)
     token = SecureRandom.urlsafe_base64
-    @user.remember_token = Digest::SHA1.hexdigest(token.to_s)
-    @user.save
+    user.remember_token = Digest::SHA1.hexdigest(token.to_s)
+    user.save
 
     cookies.permanent[:token] = {
       value: token,
       domain: '127.0.0.1:3000',
       expires: 1.day.from_now.utc
      }
-     current_user(@user)
+     current_user(user)
   end
 
   def current_user
@@ -19,13 +19,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user=(user)
-    @user = user
     cookie_token = cookies[:token]
-    remember_token = @user.remember_token
-    cookie_token == remember_token ? @user : 'not you bro'
+    remember_token = user.remember_token
+    cookie_token == remember_token ? user : 'not you bro'
   end
 
   def sign_out
-
+    session.delete(:user_id)
   end
 end
