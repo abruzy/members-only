@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
       value: token,
       domain: '127.0.0.1:3000',
       expires: 1.day.from_now.utc
-     }
-     current_user(user)
+    }
+    current_user(user)
   end
 
   def current_user

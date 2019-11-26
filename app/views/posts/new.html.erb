@@ -1,0 +1,9 @@
+<h1>Add New Post</h1>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title, "title"  %>
+  <%= f.text_field :title %>
+  <%= f.label :body, "body"  %>
+  <%= f.text_area :body :body %>
+  <%= f.submit "Submit", disable_with: 'Submiting...' %>
+<% end %>

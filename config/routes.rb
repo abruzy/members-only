@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  get 'sign-up', to: 'users#new', as: 'sign_up'
   get 'sessions/new'
   post '/sign-in', to: 'session#create', as: 'sign_in'
   get '/sign-out', to: 'session#delete', as: 'sign_out'
