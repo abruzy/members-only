@@ -1,2 +1,20 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="container-fluid">
+  <h1>Sign In</h1>
+  <%= form_tag sessions_path do %>
+    <div class="field">
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+    <br>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <br>
+    <div class="actions"><%= submit_tag "Log In" %></div>
+  <% end %>
+  <br>
+  <div class="info">
+    <p>Don't have an account? Please sign up here <%= link_to "Sign up", signup_path %></p>
+  </div>
+</div>

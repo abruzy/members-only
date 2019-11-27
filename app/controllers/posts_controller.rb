@@ -8,16 +8,22 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.Post.new
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      flash[:success] = 'Your post has created successfully'
       redirect_to root_url
     else
+      flash[:danger] = 'Invalid post, Please try again!'
       render 'new'
     end
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 end
