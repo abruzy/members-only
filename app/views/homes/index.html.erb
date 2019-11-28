@@ -1,2 +1,10 @@
-<h1>Homes#new</h1>
-<p>Find me in app/views/homes/new.html.erb</p>
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<div class="jumbotron center-align">
+  <h1 class="display-4">Hello, <%=current_user ? current_user.username : 'world'%></h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" <%= link_to "Learn More", post_index_path %></a>
+</div>

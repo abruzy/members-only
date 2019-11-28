@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_194521) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

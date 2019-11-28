@@ -1,16 +1,15 @@
-<div class="container-fluid">
-  <h1>Add New Post</h1>
-  <%= form_tag sessions_path do %>
-    <div class="field">
-      <%= label_tag :title %><br />
-      <%= text_field_tag :title %>
-    </div>
-    <br>
-    <div class="field">
-      <%= label_tag :body %><br />
-      <%= text_area_tag :body %>
-    </div>
-    <br>
-    <div class="actions"><%= submit_tag "Create Post" %></div>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Add New Post</h1>
+      <%= form_for @post do |f| %>
+        <%= f.label :title, 'Title' %>
+        <%= f.text_field :title, class: 'form-control' %>
+
+        <%= f.label :body, "Body" %>
+        <%= f.text_area :body, class: 'form-control' %>
+    
+        <%= f.submit "Create", class: "btn btn-primary mt-2" %>
+      <% end %>
+  </div>
 </div>

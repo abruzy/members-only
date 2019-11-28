@@ -1,1 +1,19 @@
-<h1>Welcome to the Post Index routes</h1>
+<div class="container mt-5">
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+  <div class="list-group">
+    <% if !@posts.blank? %>
+      <% @posts.each do |post| %>
+        <a href="/posts" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%=post.title%></h5>
+            <small><%=post.created_at.strftime("%A %B %d, %Y")%></small>
+          </div>
+        </a>
+      <%end%>
+    <% else %>
+      Nothing Here
+    <%end%>
+  </div>
+</div>

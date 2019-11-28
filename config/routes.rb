@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'homes/new'
+  root 'homes#index'
   get '/signup', to: 'users#new', as: 'signup'
   get '/signin', to: 'sessions#new', as: 'signin'
-  get '/logout', to: 'sessions#delete', as: 'logout'
-  get  '/posts',     to: 'posts#index'
-  get  '/posts/new', to: 'posts#new'
-  post '/posts/new', to: 'posts#create'
+  delete '/logout', to: 'sessions#delete', as: 'logout'
+  get  '/posts', to: 'posts#index', as: 'post_index'
+  get  '/posts/new', to: 'posts#new', as: 'post_new'
+  # post '/posts/new', to: 'posts#create', as: 'post_create'
 
   resources :users
   resources :sessions
