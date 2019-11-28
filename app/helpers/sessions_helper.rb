@@ -11,14 +11,14 @@ module SessionsHelper
       domain: '127.0.0.1:3000',
       expires: 1.day.from_now.utc
     }
-    set_current_user(user)
+    assign_current_user(user)
   end
 
   def current_user
     @user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def set_current_user(user)
+  def assign_current_user(user)
     session[:user_id] = user.id
   end
 
