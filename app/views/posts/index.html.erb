@@ -5,12 +5,13 @@
   <div class="list-group">
     <% if !@posts.blank? %>
       <% @posts.each do |post| %>
-        <a href="/posts" class="list-group-item list-group-item-action">
+        
+        <div class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><%=post.title%></h5>
+            <%= link_to post.title, post %>
             <small><%=post.created_at.strftime("%A %B %d, %Y")%></small>
           </div>
-        </a>
+        </div>
       <%end%>
     <% else %>
       Nothing Here
