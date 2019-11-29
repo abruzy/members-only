@@ -4,7 +4,6 @@ module SessionsHelper
   def sign_in(user)
     token = user.new_token
     user.remember_token = token
-    upda
     user.save
 
     cookies.permanent[:tofel] = {

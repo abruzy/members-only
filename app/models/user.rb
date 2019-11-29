@@ -18,5 +18,4 @@ class User < ApplicationRecord
     token = SecureRandom.urlsafe_base64
     self.remember_token = Digest::SHA1.hexdigest(token.to_s)
   end
-  
 end
