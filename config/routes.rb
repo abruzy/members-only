@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get  '/posts/new', to: 'posts#new', as: 'post_new'
   # post '/posts/new', to: 'posts#create', as: 'post_create'
 
-  resources :users
-  resources :sessions
-  resources :posts, only: [:new, :create, :index, :show]
+  resources :users, only: [:create]
+  resources :sessions, only: [:create]
+  resources :posts, only: [:create, :show]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

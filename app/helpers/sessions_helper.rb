@@ -2,11 +2,12 @@
 
 module SessionsHelper
   def sign_in(user)
-    token = SecureRandom.urlsafe_base64
-    user.remember_token = Digest::SHA1.hexdigest(token.to_s)
+    token = user.new_token
+    user.remember_token = token
+    upda
     user.save
 
-    cookies.permanent[:token] = {
+    cookies.permanent[:tofel] = {
       value: token,
       domain: '127.0.0.1:3000',
       expires: 1.day.from_now.utc
