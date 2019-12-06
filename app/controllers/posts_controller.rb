@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :current_user, only: %i[new create]
+  before_action :require_login, only: %i[new create]
 
   def index
     @posts = Post.all
