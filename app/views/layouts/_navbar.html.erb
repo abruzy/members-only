@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" <%= link_to "Members only", root_path %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" <%= link_to "Home", root_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Posts", post_index_path %></a>
+      </li>
+    </ul>
+    
+    <% if !current_user %>
+    <a class="btn btn-success mr-1" <%= link_to "Sign up", signup_path %></a>
+    <a class="btn btn-success" <%= link_to "Sign in", signin_path %></a>
+      <% else %>
+      <a class="nav-link" <%= link_to "New Post", post_new_path %></a>
+      <a class="btn btn-success" <%= link_to "Log out", logout_path, method: :delete %></a>
+    <% end %> 
+  </div>
+</nav>
